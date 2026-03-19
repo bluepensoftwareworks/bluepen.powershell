@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace bluepen.powershel.services
+namespace bluepen.powershell.services
 {
     public static class MemoryLog
     {

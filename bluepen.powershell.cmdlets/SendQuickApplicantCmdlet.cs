@@ -1,5 +1,5 @@
-﻿using bluepen.powershel.services;
-using bluepen.powershel.services.factories;
+﻿using bluepen.powershell.services;
+using bluepen.powershell.services.factories;
 using bluepen.powershell.domain.entities;
 using bluepen.powershell.domain.services.abstracts;
 using System.Management.Automation;

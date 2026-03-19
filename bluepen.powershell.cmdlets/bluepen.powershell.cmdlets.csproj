@@ -15,17 +15,14 @@
   </ItemGroup>
 
   <ItemGroup>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="MailKit" Version="4.15.1" />
     <PackageReference Include="MimeKit" Version="4.15.1" />
     <PackageReference Include="System.Management.Automation" Version="7.4.6" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\bluepen.powershel.services\bluepen.powershel.services.csproj" />
     <ProjectReference Include="..\bluepen.powershell.domain\bluepen.powershell.domain.csproj" />
+    <ProjectReference Include="..\bluepen.powershell.services\bluepen.powershell.services.csproj" />
   </ItemGroup>
 
 </Project>

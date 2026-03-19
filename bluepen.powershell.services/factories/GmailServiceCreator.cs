@@ -2,7 +2,7 @@
 using bluepen.powershell.domain.services.abstracts;
 using bluepen.powershell.domain.services.interfaces;
 
-namespace bluepen.powershel.services.factories
+namespace bluepen.powershell.services.factories
 {
     public class GmailServiceCreator : NotificationServiceCreator
     {

@@ -1,4 +1,4 @@
-﻿using bluepen.powershel.services.exceptions;
+﻿using bluepen.powershell.services.exceptions;
 using bluepen.powershell.domain.entities;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace bluepen.powershel.services.emethods
+namespace bluepen.powershell.services.emethods
 {
     public static class QuickApplicantExtensions
     {

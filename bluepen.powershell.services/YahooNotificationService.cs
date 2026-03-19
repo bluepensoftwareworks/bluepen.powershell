@@ -1,5 +1,5 @@
-﻿using bluepen.powershel.services.emethods;
-using bluepen.powershel.services.exceptions;
+﻿using bluepen.powershell.services.emethods;
+using bluepen.powershell.services.exceptions;
 using bluepen.powershell.domain.entities;
 using bluepen.powershell.domain.services.interfaces;
 using MailKit.Net.Smtp;
@@ -9,7 +9,7 @@ using System;
 using System.Threading.Tasks;
 
 
-namespace bluepen.powershel.services
+namespace bluepen.powershell.services
 {
     public  class YahooNotificationService: INotificationService
     {
