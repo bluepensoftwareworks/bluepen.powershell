@@ -24,8 +24,6 @@ namespace bluepen.powershell.cmdlets
         [Alias("p")]
         [ValidateNotNullOrEmpty]
         [Parameter(Mandatory = true, HelpMessage = "The password of the account accesses mail service.")]
-        //zitytzulexbueyyr - Y
-        //chyauxuwrjhsbsgw - G
         public string Password { get; set; }
         
         [Alias("r")]
