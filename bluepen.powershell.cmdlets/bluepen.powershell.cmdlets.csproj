@@ -15,11 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="markdown.txt" />
-    <None Remove="powershell-101.png" />
-    <None Remove="powershell-102.png" />
-    <None Remove="README.md" />
-    <None Remove="README.txt" />
   </ItemGroup>
 
   <ItemGroup>
