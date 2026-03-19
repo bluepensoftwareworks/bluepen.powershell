@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <BaseOutputPath></BaseOutputPath>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Properties\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="markdown.txt" />
+    <None Remove="powershell-101.png" />
+    <None Remove="powershell-102.png" />
+    <None Remove="README.md" />
+    <None Remove="README.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="4.15.1" />
+    <PackageReference Include="MimeKit" Version="4.15.1" />
+    <PackageReference Include="System.Management.Automation" Version="7.4.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\bluepen.powershel.services\bluepen.powershel.services.csproj" />
+    <ProjectReference Include="..\bluepen.powershell.domain\bluepen.powershell.domain.csproj" />
+  </ItemGroup>
+
+</Project>

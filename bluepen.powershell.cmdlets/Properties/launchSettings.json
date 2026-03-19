@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "bluepen.powershell.cmdlets": {
+      "commandName": "Project",
+      "commandLineArgs": "-m Y -u clientspecifics@yahoo.com -p whatever -r marina.klyavina@gmail.com,clientspecifics@yahoo.com -s \"Looking for Software Engineering Manager position\" -t \"Software Engineering Manager\" -c \"Hello World!\" -a \"attachment\" -sg \"Eduard Babayan\"",
+      "workingDirectory": "\"C:\\Program Files\\PowerShell\\7\\pwsh.exe\" -WorkingDirectory ~"
+    },
+    "Profile 1": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+      "commandLineArgs": "-NoLogo -NoExit -Command \"Import-Module '$(SolutionDir)bluepen.powershell.cmdlets\\bin\\$(Configuration)\\net8.0\\bluepen.powershell.cmdlets.dll'; \""
+    }
+  }
+}

@@ -1,0 +1,7 @@
+To whom it might concern:
+
+This is my content with such {topic}.
+
+Sincerely,
+ 
+{signature}
