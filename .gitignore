@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/bluepen.powershell.sln
+/bluepen.powershel.services/bluepen.powershel.services.csproj
+/bluepen.powershell.cmdlets/bluepen.powershell.cmdlets.csproj
+/bluepen.powershell.domain/bluepen.powershell.domain.csproj
