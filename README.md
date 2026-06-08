@@ -92,3 +92,18 @@ Provide examples of how to use our solution, including code snippets or screensh
 
 ## References
 
+* https://www.red-gate.com/simple-talk/development/dotnet-development/using-c-to-create-powershell-cmdlets-the-basics/
+* https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/cmdlet-development-guidelines?view=powershell-7.4
+* https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/how-to-write-a-simple-cmdlet?view=powershell-7.4
+* https://learn.microsoft.com/en-us/powershell/scripting/developer/module/how-to-write-a-powershell-binary-module?view=powershell-7.4
+* https://learn.microsoft.com/en-us/powershell/scripting/developer/module/how-to-write-a-powershell-binary-module?view=powershell-7.6
+* https://learn.microsoft.com/en-us/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7.4
+* https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/tutorials-for-writing-cmdlets?view=powershell-7.4
+* https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/creating-a-cmdlet-without-parameters?view=powershell-7.4
+* https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/adding-parameters-that-process-command-line-input?view=powershell-7.4
+* https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/adding-user-messages-to-your-cmdlet?view=powershell-7.4
+* https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/adding-aliases-wildcard-expansion-and-help-to-cmdlet-parameters?view=powershell-7.4
+* https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/cmdlet-overview?view=powershell-7.4
+* https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/cmdlet-development-guidelines?view=powershell-7.4
+* https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/cmdlet-overview?view=powershell-7.4
+* https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/declaring-properties-as-parameters?view=powershell-7.4
