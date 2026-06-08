@@ -46,11 +46,9 @@ Step-by-step commands or instructions to clone the repository and open the solut
     3. Click "Generate app password" or "Manage app passwords".
     4. Click "Get started," then enter a name for the app (e.g., "Outlook") in the text field.
     5. Click "Generate password".
-    6. Copy the generated one-time password and use it as your password when setting up your account in your third-party app.
-       
-
-6. 
-
+    6. Copy the generated one-time password and use it as your password when setting up your account in your third-party app.      
+5. To Create Google Application Password for your personal google account at https://myaccount.google.com/apppasswords. For references, please use the following video training session: https://www.youtube.com/watch?v=wniM7sU0bmU
+    <img width="1432" height="831" alt="image" src="https://github.com/user-attachments/assets/d50bd9b5-9aba-4230-8fae-dad8b502625d" />
 
 ## Usage
 
