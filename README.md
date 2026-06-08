@@ -83,7 +83,9 @@ Provide examples of how to use our solution, including code snippets or screensh
 
 ## License
 
+* Free library developed by Bluepen Software team members as RnD work and experiment.
 
 ## Contact
 
+* If you have any questions or would like to learn more, please free to reach out at support@bluepensoftware.com.
 
