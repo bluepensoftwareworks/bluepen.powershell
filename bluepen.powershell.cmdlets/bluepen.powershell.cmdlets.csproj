@@ -14,9 +14,9 @@
     <None Remove="Properties\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="MailKit" Version="4.15.1" />
-    <PackageReference Include="MimeKit" Version="4.15.1" />
+  <ItemGroup>    
+    <PackageReference Include="MailKit" Version="4.17.0" />
+    <PackageReference Include="MimeKit" Version="4.17.0" />
     <PackageReference Include="System.Management.Automation" Version="7.4.6" />
   </ItemGroup>
 

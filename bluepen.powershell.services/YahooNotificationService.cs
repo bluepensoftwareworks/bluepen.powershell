@@ -1,18 +1,24 @@
 ﻿using bluepen.powershell.services.emethods;
-using bluepen.powershell.services.exceptions;
 using bluepen.powershell.domain.entities;
 using bluepen.powershell.domain.services.interfaces;
 using MailKit.Net.Smtp;
 using MailKit.Security;
 using MimeKit;
-using System;
-using System.Threading.Tasks;
 
 
 namespace bluepen.powershell.services
 {
+    /// <summary>
+    /// Represents Notification Service that uses Yahoo mail service to send out mail notifications using MailKit and MimeKit packages
+    /// </summary>
+    /// <remarks>
+    /// This class provides methods for disposing Yahoo Notification Service and notifying receiver with a message containing subject, topic, attachment and body text
+    /// </remarks>
     public  class YahooNotificationService: INotificationService
     {
+        /// <summary>
+        /// Gets, Sets QuickApplicant
+        /// </summary>
         protected QuickApplicant quickApplicant;
 
         private bool _disposed = false;
@@ -21,6 +27,9 @@ namespace bluepen.powershell.services
             this.quickApplicant = quickApplicant;
         }
 
+        /// <summary>
+        /// Deposits existing Yahoo Notification Service
+        /// </summary>
         public void Dispose()
         {
             // Call our private Dispose method. Pass 'true' to indicate deterministic disposal.
@@ -49,26 +58,20 @@ namespace bluepen.powershell.services
             }
         }
 
+        /// <summary>
+        /// Notifies 
+        /// </summary>
+        /// <returns></returns>
         public async Task NotifyAsync() {
             using (var client = new SmtpClient()) {
                 try
                 {
                     await client.ConnectAsync("smtp.mail.yahoo.com", 465, SecureSocketOptions.SslOnConnect);
-                    //Authenticate using your full Yahoo email address and the app password
+                    //Authenticate using your full Yahoo email address and the application password
                     await client.AuthenticateAsync(quickApplicant.Username, quickApplicant.Password);
 
                     string fileContents = quickApplicant.GetContent();
-
-                    if (string.IsNullOrEmpty(fileContents))
-                    {
-                        throw new ContentProvidedException("Content provided is something else...There is an issue...");
-                    }
-
                     IList<string> recipients = quickApplicant.GetRecipients();
-
-                    if (recipients == null) {
-                        throw new ContentProvidedException("Content provided is something else...There is an issue...");
-                    }
 
                     foreach (string recipient in recipients)
                     {
@@ -81,7 +84,7 @@ namespace bluepen.powershell.services
                                                         
                             var bodyBuilder = new BodyBuilder { HtmlBody = fileContents.GetHTMLBody(quickApplicant.Topic, quickApplicant.Signature),
                                                                 TextBody = fileContents.Replace("{topic}", quickApplicant.Topic).Replace("{signature}", quickApplicant.Signature)};
-
+                            //should be utilized when IsFile switch is present at the command prompt.
                             if (!string.IsNullOrEmpty(quickApplicant.Attachment)) {
                                 if (quickApplicant.Attachment.IndexOfAny(new char[] { '\\', '/', ':' }) != -1) {                                    
                                     bodyBuilder.Attachments.Add(Path.GetFileName(quickApplicant.Attachment), File.ReadAllBytes(quickApplicant.Attachment));

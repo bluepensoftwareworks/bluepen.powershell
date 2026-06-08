@@ -1,5 +1,4 @@
 ﻿using bluepen.powershell.services.emethods;
-using bluepen.powershell.services.exceptions;
 using bluepen.powershell.domain.entities;
 using bluepen.powershell.domain.services.interfaces;
 using MailKit.Net.Smtp;
@@ -8,16 +7,29 @@ using MimeKit;
 
 namespace bluepen.powershell.services
 {
+    /// <summary>
+    /// Represents Notification Service that uses Gmail mail service to send out mail notifications using MailKit and MimeKit packages
+    /// </summary>
+    /// <remarks>
+    /// This class provides methods for disposing Gmail Notification Service and notifying receiver with a message containing subject, topic, attachment and body text
+    /// </remarks>
     public class GmailNotificationService: INotificationService
     {
         protected QuickApplicant quickApplicant;
 
         private bool _disposed = false;
 
+        /// <summary>
+        /// Instantiates new instance of Gmail Notification service
+        /// </summary>
+        /// <param name="quickApplicant">the unique applicant account</param>
         public GmailNotificationService(QuickApplicant quickApplicant) {
             this.quickApplicant = quickApplicant;
         }
 
+        /// <summary>
+        /// disposes of Gmail notification service instance
+        /// </summary>
         public void Dispose()
         {
             // Call our private Dispose method. Pass 'true' to indicate deterministic disposal.
@@ -47,6 +59,10 @@ namespace bluepen.powershell.services
             }
         }
 
+        /// <summary>
+        /// Notifies a specific set of recipients with notification message, subject, topic, optional attachment, and defined signature with utilization of Gmail Mail service
+        /// </summary>
+        /// <returns></returns>
         public async Task NotifyAsync()
         {
             using (var client = new SmtpClient())
@@ -54,23 +70,12 @@ namespace bluepen.powershell.services
                 try
                 {
                     await client.ConnectAsync("smtp.gmail.com", 465, SecureSocketOptions.SslOnConnect);
-                    //client.Connect ("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-                    //Authenticate using your full Yahoo email address and the app password
+                    //Authenticate using your full Yahoo email address and the application password
                     await client.AuthenticateAsync(quickApplicant.Username, quickApplicant.Password);
 
                     string fileContents = quickApplicant.GetContent();
 
-                    if (string.IsNullOrEmpty(fileContents)) {
-                        throw new ContentProvidedException("Content provided is something else...There is an issue...");
-                    }
-
                     IList<string> recipients = quickApplicant.GetRecipients();
-
-                    if (recipients == null)
-                    {
-                        throw new ContentProvidedException("Content provided is something else...There is an issue...");
-                    }
-
 
                     foreach (string recipient in recipients)
                     {
@@ -87,7 +92,7 @@ namespace bluepen.powershell.services
                                 HtmlBody = fileContents.GetHTMLBody(quickApplicant.Topic, quickApplicant.Signature ),
                                 TextBody = fileContents.Replace("{topic}", quickApplicant.Topic).Replace("{signature}", quickApplicant.Signature)
                             };
-
+                            //should be utilized when IsFile switch is present at the command prompt.
                             if (!string.IsNullOrEmpty(quickApplicant.Attachment))
                             {
                                 if (quickApplicant.Attachment.IndexOfAny(new char[] { '\\', '/', ':' }) != -1)

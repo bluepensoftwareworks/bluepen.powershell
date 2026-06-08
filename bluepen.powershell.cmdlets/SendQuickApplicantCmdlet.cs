@@ -6,6 +6,9 @@ using System.Management.Automation;
 
 namespace bluepen.powershell.cmdlets
 {
+    /// <summary>
+    /// Represents SendQuickApplicant CommandLet
+    /// </summary>
     [Cmdlet(VerbsCommunications.Send, "QuickApplicant")]
     [OutputType(typeof(string))]
     public class SendQuickApplicantCmdlet() : Cmdlet
@@ -14,37 +17,37 @@ namespace bluepen.powershell.cmdlets
         [Alias("m", "ms")]
         [ValidateNotNullOrEmpty]
         [Parameter(Mandatory = true, HelpMessage = "The name of the mail service to utilize. For example, Y - Yahoo or G - Gmail")]
-        public string Service { get; set; }
+        public required string Service { get; set; }
         
         [Alias("u")]
         [ValidateNotNullOrEmpty]
         [Parameter(Mandatory = true, HelpMessage = "The username of the account accesses mail service.")]
-        public string Username { get; set; }
+        public required string Username { get; set; }
         
         [Alias("p")]
         [ValidateNotNullOrEmpty]
         [Parameter(Mandatory = true, HelpMessage = "The password of the account accesses mail service.")]
-        public string Password { get; set; }
+        public required string Password { get; set; }
         
         [Alias("r")]
         [ValidateNotNullOrEmpty]
         [Parameter(Mandatory = true, HelpMessage = "The list of recipients separated by comma")]
-        public string[] Recipients { get; set; } 
+        public required string[] Recipients { get; set; } 
         
         [Alias("s")]
         [ValidateNotNullOrEmpty]
         [Parameter(Mandatory = true, HelpMessage = "This is a subject of the email notification")]
-        public string Subject { get; set; }
+        public required string Subject { get; set; }
         
         [Alias("t")]
         [ValidateNotNullOrEmpty]
         [Parameter(Mandatory = true, HelpMessage = "This is a topic within a text of the email notification" )]
-        public string Topic { get; set; }
+        public required string Topic { get; set; }
         
         [Alias("c")]
         [ValidateNotNullOrEmpty]
         [Parameter(Mandatory = true, HelpMessage = "This is a content of the email notification")]
-        public string Content { get; set; } 
+        public required string Content { get; set; } 
         
         [Alias("a")]
         [ValidateNotNullOrEmpty]
@@ -54,14 +57,16 @@ namespace bluepen.powershell.cmdlets
         [Alias("sg")]
         [ValidateNotNullOrEmpty]
         [Parameter(Mandatory = true, HelpMessage = "This is signature to be used for email notification" )]
-        public string Signature { get; set; }
+        public required string Signature { get; set; }
 
         [Parameter(HelpMessage = "This is a switch that provides opportunity of choice to decide if we want to process Recipients as an array of contacts or picked up file of contacts.")]
         public SwitchParameter File { get; set; }
 
         private NotificationServiceCreator? serviceCreator;
 
-        //do initialization
+        /// <summary>
+        /// Begins Processing of the commandLet, do initialization
+        /// </summary>        
         protected override void BeginProcessing()
         {
             //Setup
@@ -97,7 +102,9 @@ namespace bluepen.powershell.cmdlets
             }
         }
 
-        //to process each item in the pipeline
+        /// <summary>
+        /// Processes each record in the pipeline
+        /// </summary>        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -118,7 +125,10 @@ namespace bluepen.powershell.cmdlets
             }
         }
 
-        //to do finalization
+        
+        /// <summary>
+        /// Do finalization
+        /// </summary>
         protected override void EndProcessing()
         {
             base.EndProcessing();            
@@ -132,8 +142,10 @@ namespace bluepen.powershell.cmdlets
                 WriteError(new ErrorRecord(ex, Guid.NewGuid().ToString(), ErrorCategory.InvalidOperation, ""));
             }
         }
-
-        //to handle abnormal termination
+                
+        /// <summary>
+        /// Handle abnormal termination
+        /// </summary>
         protected override void StopProcessing()
         {
             base.StopProcessing();            
