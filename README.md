@@ -64,6 +64,8 @@ Provide examples of how to use our solution, including code snippets or screensh
 *   Attach Visual Studio to a process
     <img width="785" height="590" alt="image" src="https://github.com/user-attachments/assets/54c1ad0b-887a-448a-abd3-ccdd67f42238" />
 *   Execute CommandLet with the following...
+    PS C:\{directory-where-you-have-installed-binary-module-dll}>**Send-QuickApplicant** -m {either Y or G} -u {your email account} -p {application password} -r {you can list recipients as a comma separate list -OR- (provide full file path to: recipients.txt if -File switch is present)} -s {provide subject matter of your notification. if multiple words enclose in double quotes} -t {what is your topic} -c {what is your content. content can be written in-line and enclosed in double quotes -OR- (provide full file path to content.txt if -File switch is present)} -a {provide full file path to attachment if File switch is present} -sg {what is your signature} -File (switch can be present or absent.)
+    
     
 
 
