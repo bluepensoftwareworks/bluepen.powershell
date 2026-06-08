@@ -7,7 +7,7 @@ using System.Management.Automation;
 namespace bluepen.powershell.cmdlets
 {
     /// <summary>
-    /// Represents SendQuickApplicant CommandLet
+    /// Represents SendQuickApplicant CommandLet..
     /// </summary>
     [Cmdlet(VerbsCommunications.Send, "QuickApplicant")]
     [OutputType(typeof(string))]
