@@ -1,8 +1,6 @@
-# Bluepen Powershell Binary Module (bluepen.powershell.cmdlets)
+# Send-QuickApplicant CommandLet
 
-A Binary Module bluepen.powershell.cmdlets contains **SendQuickApplicant** cmdlet that allows a user to send messages/notifications via external mail services or other external custom services while a user uses Powershell 7 (x64) environment. Solution shows how to work with **System.Management.Automation** namespace and build your own custom binary powershell modules. In addition, it also shows that you can install binary module and invoke cmdlet via command prompt in Powershell 7 (x64). The solution also shows how to design binary powershell framework by utilizing **Factory Method Design pattern**, **MailKit package** and **MimeKit package**.
-
-More to come...
+It has been created as a shareable draft to showcase how to create binary powershell 7 module and commandlet within it. This commandlet sends individual messages/notifications via external mail service of choice while a user uses Powershell 7 (x64) environment. In addition, this solution shows how to works with **System.Management.Automation** namespace, and design binary powershell framework by utilizing **Abstract Factory and Facade Design Patterns**, and how to work with **MailKit package** and **MimeKit package** in Bluepen Powershell Binary Module (bluepen.powershell.cmdlets).
 
 ## Table of Contents
 
