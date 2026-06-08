@@ -27,6 +27,7 @@ Before you begin, ensure you have the following installed on your machine:
 
 * Visual Studio 2022: Download Visual Studio 2022 (https://learn.microsoft.com/en-us/visualstudio/releases/2022/release-notes) or higher at https://visualstudio.microsoft.com/downloads/
 * NuGet Package Manager   6.14.3 / NuGet Package Manager in Visual Studio. For more information about NuGet, visit https://docs.nuget.org/
+* Yahoo email account / Google email account
 
 ### Installation
 
