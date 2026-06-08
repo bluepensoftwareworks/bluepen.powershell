@@ -67,6 +67,8 @@ Provide examples of how to use our solution, including code snippets or screensh
 *   **PS C:\{directory-where-you-have-installed-binary-module-dll}**>**Send-QuickApplicant** **-m** {either Y or G} **-u** {your email account} **-p** {application password} **-r** {you can list recipients as a comma separate list -OR- (provide full file path to: recipients.txt if -File switch is present)} **-s** {provide subject matter of your notification. if multiple words enclose in double quotes} **-t** {what is your topic} **-c** {what is your content. content can be written in-line and enclosed in double quotes -OR- (provide full file path to content.txt if -File switch is present)} **-a** {provide full file path to attachment if File switch is present} **-sg** {what is your signature} **-File** (switch can be present or absent.)
 
      <img width="1174" height="619" alt="image" src="https://github.com/user-attachments/assets/f0ee74f9-9731-4b61-9461-8d4ce543a300" />
+     <img width="1413" height="66" alt="image" src="https://github.com/user-attachments/assets/937bb34d-6cd6-4935-915f-a00d936d80f4" />
+
 
 ## Contributing
 
