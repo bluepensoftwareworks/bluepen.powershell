@@ -69,6 +69,10 @@ Provide examples of how to use our solution, including code snippets or screensh
      <img width="1174" height="619" alt="image" src="https://github.com/user-attachments/assets/f0ee74f9-9731-4b61-9461-8d4ce543a300" />
      <img width="1413" height="66" alt="image" src="https://github.com/user-attachments/assets/937bb34d-6cd6-4935-915f-a00d936d80f4" />
 
+* Command Examples
+*     Send-QuickApplicant -m {either Y or G} -u {email account} -p {application password} -r tom.hanks@movies.com,dwayne.jonsohn@movies.com,ebabayan@bluepensoftware.com -s "Oscar movies" -t "Nominee" -c "Who is to present awards this evening?" -sg "Billy Christal"
+*     Send-QuickApplicant -m {either Y or G} -u {email account} -p {application password} -r f:\recipients.txt -s "Oscar Movies" -t "Nominee" -c f:\content.txt -a f:\attachment.pdf -sg "Billy Christal" **-File**
+
 
 ## Contributing
 
