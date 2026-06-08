@@ -28,6 +28,15 @@ Before you begin, ensure you have the following installed on your machine:
 
 ### Installation
 
+Step-by-step commands or instructions to clone the repository and open the solution.
+
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com
+    ```
+2.  Open the solution file (`YourSolutionName.sln`) in Visual Studio.
+3.  Restore NuGet packages if they don't restore automatically.
+
 
 ## Usage
 
