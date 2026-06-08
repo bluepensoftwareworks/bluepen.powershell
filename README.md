@@ -10,10 +10,9 @@ It has been created as a shareable draft to showcase how to create binary powers
 
 This Visual Studio solution (`bluepen.powershell.sln`) contains the following three projects:
 
-*   **`Project1.Name`**: A brief description of the first project (e.g., the main application, API, or executable).
-*   **`Project2.Name`**: A description of the second project (e.g., a shared library, data access layer, or core logic).
-*   **`Project3.Name`**: A description of the third project (e.g., a unit test project or utility project).
-
+*   **`bluepen.powershell.cmdlets`**: This is a startup project that contains main QuickApplicant commandlet to execute at Powershell 7 command prompt.
+*   **`bluepen.powershell.domain`**: The class library contains domain entities, abstracts and service interfaces that define signatures for creation and communication between layers and serve as foundation for pattern-based design framework.
+*   **`bluepen.powershell.services`**: This class library contains implementations for notification services, factories, extension methods and custom exceptions that provide core pieces for powershell binary module framework.
 
 ## Getting Started
 
