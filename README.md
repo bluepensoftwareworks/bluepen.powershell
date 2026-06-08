@@ -8,6 +8,7 @@ It has been created as a shareable draft to showcase how to create binary powers
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
+- [Usage](#usage)
 
 ## Project Structure
 
