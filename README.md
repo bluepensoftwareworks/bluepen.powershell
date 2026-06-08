@@ -77,6 +77,7 @@ Provide examples of how to use our solution, including code snippets or screensh
 
 ## Contributing
 
+* At this time, current solution is a draft that is open for cloning and improving at your own pace and use. You are welcome to copy this framework for Powershell Binary Module development and extensability. At this time project is open for contributions only to specific bluepen software team members.
 
 ## License
 
