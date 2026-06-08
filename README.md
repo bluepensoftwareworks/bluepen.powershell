@@ -6,6 +6,8 @@ It has been created as a shareable draft to showcase how to create binary powers
 
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
 
 ## Project Structure
 
@@ -32,9 +34,9 @@ Step-by-step commands or instructions to clone the repository and open the solut
 
 1.  Clone the repository:
     ```bash
-    git clone https://github.com
+    git clone [bluepen.powershell](https://github.com/bluepensoftwareworks/bluepen.powershell.git)
     ```
-2.  Open the solution file (`YourSolutionName.sln`) in Visual Studio.
+2.  Open the solution file (`bluepen.powershell.sln`) in Visual Studio.
 3.  Restore NuGet packages if they don't restore automatically.
 
 
