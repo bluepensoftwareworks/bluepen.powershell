@@ -53,6 +53,10 @@ Step-by-step commands or instructions to clone the repository and open the solut
 
 ## Usage
 
+Provide examples of how to use our solution, including code snippets or screenshots if applicable...
+
+*   To run the main application, set `bluepen.powershell.cmdlets` as the **Startup Project** in the Solution Explorer and press F5.
+*   To run tests for `Project3.Name`, use the Visual Studio Test Explorer.
 
 ## Contributing
 
