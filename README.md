@@ -34,7 +34,7 @@ Step-by-step commands or instructions to clone the repository and open the solut
 
 1.  Clone the repository:
     ```bash
-    git clone [bluepen.powershell](https://github.com/bluepensoftwareworks/bluepen.powershell.git)
+    git clone https://github.com/bluepensoftwareworks/bluepen.powershell.git
     ```
 2.  Open the solution file (`bluepen.powershell.sln`) in Visual Studio.
 3.  Restore NuGet packages if they don't restore automatically.
