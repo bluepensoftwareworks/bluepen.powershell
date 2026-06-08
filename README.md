@@ -40,13 +40,16 @@ Step-by-step commands or instructions to clone the repository and open the solut
 2.  Open the solution file (`bluepen.powershell.sln`) in Visual Studio.
 3.  Restore NuGet packages if they don't restore automatically.
 4.  To generate a Yahoo App Password so you can connect your Yahoo account to a third-party email app (like Outlook, Apple Mail, or Thunderbird), follow these quick steps:
+<img width="1561" height="871" alt="image" src="https://github.com/user-attachments/assets/c590c781-8587-45fc-a31c-f36e6e1da000" />
     1. Sign in to your Yahoo Account Security page.
     2. Scroll down to the "Other ways to sign in" or "External connections" section.
     3. Click "Generate app password" or "Manage app passwords".
     4. Click "Get started," then enter a name for the app (e.g., "Outlook") in the text field.
     5. Click "Generate password".
     6. Copy the generated one-time password and use it as your password when setting up your account in your third-party app.
-5. 
+       
+
+6. 
 
 
 ## Usage
