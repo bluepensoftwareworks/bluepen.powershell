@@ -9,6 +9,7 @@ It has been created as a shareable draft to showcase how to create binary powers
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
+- [Contributing](#contributing)
 
 ## Project Structure
 
