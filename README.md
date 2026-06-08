@@ -17,7 +17,7 @@ This Visual Studio solution (`bluepen.powershell.sln`) contains the following th
 
 ## Getting Started
 
-Instructions on how to get the project up and running on a local machine.
+Instructions on how to get the project up and running on a local machine. Get the following git repository https://github.com/bluepensoftwareworks/bluepen.powershell.git on your local machine.
 
 ### Prerequisites
 
