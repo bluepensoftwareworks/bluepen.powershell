@@ -12,6 +12,7 @@ It has been created as a shareable draft to showcase how to create binary powers
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
+- [References](#references)
 
 ## Project Structure
 
@@ -84,6 +85,10 @@ Provide examples of how to use our solution, including code snippets or screensh
 ## License
 
 * Free library developed by Bluepen Software team members as RnD work and experiment.
+
+## References
+
+
 
 ## Contact
 
