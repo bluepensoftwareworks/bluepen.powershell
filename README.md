@@ -4,6 +4,8 @@ It has been created as a shareable draft to showcase how to create binary powers
 
 ## Table of Contents
 
+- [Project Structure](#project-structure)
+
 
 ## Project Structure
 
