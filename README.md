@@ -55,8 +55,14 @@ Step-by-step commands or instructions to clone the repository and open the solut
 
 Provide examples of how to use our solution, including code snippets or screenshots if applicable...
 
-*   To run the main application, set `bluepen.powershell.cmdlets` as the **Startup Project** in the Solution Explorer and press F5.
-*   To run tests for `Project3.Name`, use the Visual Studio Test Explorer.
+*   To run the main application, set `bluepen.powershell.cmdlets` as the **Startup Project** in the Solution Explorer.
+*   Rebuild Solution.
+*   Invoke Powershell 7 (x64)
+*   PS C:\{directory-what-have-you}> Import-Module -Name C:\{directory-what-have-you}\bluepen.powershell\bluepen.powershell.cmdlets\bin\Debug\net8.0\bluepen.powershell.cmdlets.dll
+*   Attach Visual Studio to a process
+    <img width="785" height="590" alt="image" src="https://github.com/user-attachments/assets/54c1ad0b-887a-448a-abd3-ccdd67f42238" />
+
+
 
 ## Contributing
 
