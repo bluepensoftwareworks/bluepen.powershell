@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <BaseOutputPath></BaseOutputPath>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
