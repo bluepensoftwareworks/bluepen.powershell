@@ -10,6 +10,8 @@ It has been created as a shareable draft to showcase how to create binary powers
   - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
 ## Project Structure
 
