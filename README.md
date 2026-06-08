@@ -6,8 +6,13 @@ It has been created as a shareable draft to showcase how to create binary powers
 
 - [Project Structure](#project-structure)
 
-
 ## Project Structure
+
+This Visual Studio solution (`bluepen.powershell.sln`) contains the following three projects:
+
+*   **`Project1.Name`**: A brief description of the first project (e.g., the main application, API, or executable).
+*   **`Project2.Name`**: A description of the second project (e.g., a shared library, data access layer, or core logic).
+*   **`Project3.Name`**: A description of the third project (e.g., a unit test project or utility project).
 
 
 ## Getting Started
