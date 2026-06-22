@@ -90,7 +90,7 @@ namespace bluepen.powershell.cmdlets
         {
             //Setup
             base.BeginProcessing();
-            WriteObject("Begin Processing...");
+            WriteVerbose("Begin Processing...");
             try{
 
                 switch (this.Service.ToUpper()) {
@@ -115,7 +115,7 @@ namespace bluepen.powershell.cmdlets
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            WriteObject("Processing a Record...");
+            WriteVerbose("Processing a Record...");
 
 
             if (ShouldProcess(Content, "Send Notifications") || ShouldProcess(ContentPath, "Send Notifications"))
@@ -170,8 +170,8 @@ namespace bluepen.powershell.cmdlets
         /// </summary>
         protected override void EndProcessing()
         {
-            base.EndProcessing();            
-            WriteObject("End Processing...");
+            base.EndProcessing();
+            WriteVerbose("End Processing...");
             try{
                 if (serviceCreator != null) {
                     serviceCreator = null;
@@ -187,8 +187,8 @@ namespace bluepen.powershell.cmdlets
         /// </summary>
         protected override void StopProcessing()
         {
-            base.StopProcessing();            
-            WriteObject("Stop Processing...");
+            base.StopProcessing();
+            WriteVerbose("Stop Processing...");
             try{
 
             }catch (Exception ex){
