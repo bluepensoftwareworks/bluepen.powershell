@@ -11,3 +11,4 @@
 /bluepen.powershell.domain/obj
 /bluepen.powershell.services/bin/Debug/net8.0
 /bluepen.powershell.services/obj
+/bluepen.powershell.services/decorators/ValidatingNotificationServiceDecorator.cs
