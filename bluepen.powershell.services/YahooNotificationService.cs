@@ -1,6 +1,7 @@
-﻿using bluepen.powershell.services.emethods;
-using bluepen.powershell.domain.entities;
+﻿using bluepen.powershell.domain.entities;
 using bluepen.powershell.domain.services.interfaces;
+using bluepen.powershell.services.emethods;
+using bluepen.powershell.services.exceptions;
 using MailKit.Net.Smtp;
 using MailKit.Security;
 using MimeKit;
@@ -19,12 +20,16 @@ namespace bluepen.powershell.services
         /// <summary>
         /// Gets, Sets QuickApplicant
         /// </summary>
-        protected QuickApplicant quickApplicant;
+        protected IValidator validator;
 
         private bool _disposed = false;
 
-        public YahooNotificationService(QuickApplicant quickApplicant) {
-            this.quickApplicant = quickApplicant;
+        /// <summary>
+        /// YahooNotificationService
+        /// </summary>
+        /// <param name="validator"></param>
+        public YahooNotificationService(IValidator validator) {
+            this.validator = validator;
         }
 
         /// <summary>
@@ -62,16 +67,38 @@ namespace bluepen.powershell.services
         /// Notifies 
         /// </summary>
         /// <returns></returns>
-        public async Task NotifyAsync() {
+        public async Task NotifyAsync(QuickApplicant quickApplicant) {
             using (var client = new SmtpClient()) {
                 try
                 {
+                    var validationResult = validator.Validate(quickApplicant);
+                    if (!validationResult.IsValid)
+                    {
+                        throw new ContentProvidedException(validationResult.Errors);
+                    }
+
                     await client.ConnectAsync("smtp.mail.yahoo.com", 465, SecureSocketOptions.SslOnConnect);
                     //Authenticate using your full Yahoo email address and the application password
                     await client.AuthenticateAsync(quickApplicant.Username, quickApplicant.Password);
 
                     string fileContents = quickApplicant.GetContent();
                     IList<string> recipients = quickApplicant.GetRecipients();
+
+
+                    var bodyBuilder = new BodyBuilder
+                    {
+                        HtmlBody = fileContents.GetHTMLBody(quickApplicant.Topic, quickApplicant.Signature),
+                        TextBody = fileContents.Replace("{topic}", quickApplicant.Topic).Replace("{signature}", quickApplicant.Signature)
+                    };
+
+                    //should be utilized when IsFile switch is present at the command prompt.
+                    if (!string.IsNullOrEmpty(quickApplicant.AttachmentPath)) {
+                        FileInfo fileInfo = new FileInfo(quickApplicant.AttachmentPath);
+                        if (fileInfo.Exists)
+                        {
+                            bodyBuilder.Attachments.Add(Path.GetFileName(quickApplicant.AttachmentPath), File.ReadAllBytes(quickApplicant.AttachmentPath));
+                        }
+                    }
 
                     foreach (string recipient in recipients)
                     {
@@ -81,22 +108,12 @@ namespace bluepen.powershell.services
                             message.From.Add(new MailboxAddress(quickApplicant.Signature, quickApplicant.Username));
                             message.To.Add(new MailboxAddress(null, recipient));
                             message.Subject = quickApplicant.Subject;
-                                                        
-                            var bodyBuilder = new BodyBuilder { HtmlBody = fileContents.GetHTMLBody(quickApplicant.Topic, quickApplicant.Signature),
-                                                                TextBody = fileContents.Replace("{topic}", quickApplicant.Topic).Replace("{signature}", quickApplicant.Signature)};
-                            //should be utilized when IsFile switch is present at the command prompt.
-                            if (!string.IsNullOrEmpty(quickApplicant.Attachment)) {
-                                if (quickApplicant.Attachment.IndexOfAny(new char[] { '\\', '/', ':' }) != -1) {                                    
-                                    bodyBuilder.Attachments.Add(Path.GetFileName(quickApplicant.Attachment), File.ReadAllBytes(quickApplicant.Attachment));
-                                }
-                            }
 
                             message.Body = bodyBuilder.ToMessageBody();
 
                             //Send the message
                             await client.SendAsync(message);
-                            string result = $"Username: {quickApplicant.Username}, Password: {quickApplicant.Password}, Subject: {quickApplicant.Subject}, Topic: {quickApplicant.Topic}, Recipient: {recipient}, " +
-                                $"Content: {quickApplicant.Content}, Attachment: {quickApplicant.Attachment}, Signature: {quickApplicant.Signature}";
+                            string result = $"Username: {quickApplicant.Username}, Subject: {quickApplicant.Subject}, Topic: {quickApplicant.Topic}, Signature: {quickApplicant.Signature}";
                             MemoryLog.Log(result);
                             Thread.Sleep(TimeSpan.FromSeconds(5));
                         }

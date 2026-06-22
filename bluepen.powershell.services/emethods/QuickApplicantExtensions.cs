@@ -21,25 +21,21 @@ namespace bluepen.powershell.services.emethods
             //sort out content...
             if (quickApplicant.IsFile)
             {
-                if (!string.IsNullOrEmpty(quickApplicant.Content) && quickApplicant.Content.IndexOfAny(new char[] { '\\', '/', ':' }) != -1)
+                FileInfo fileInfo = new FileInfo(quickApplicant.ContentPath);
+
+                if (fileInfo.Exists)
                 {
                     //we have a file...
-                    fileContents = File.ReadAllText(quickApplicant.Content);
+                    fileContents = File.ReadAllText(quickApplicant.ContentPath);
                 }
             }
             else
             {
-                if (!string.IsNullOrEmpty(quickApplicant.Content) && quickApplicant.Content.IndexOfAny(new char[] { '\\', '/', ':' }) == -1)
+                if (!string.IsNullOrEmpty(quickApplicant.Content))
                 {
                     fileContents = quickApplicant.Content;
                 }
             }
-
-            if (string.IsNullOrEmpty(fileContents))
-            {
-                throw new ContentProvidedException("Content provided is something else...There is an issue...");
-            }
-
             //sort out content...
             return fileContents;
 
@@ -54,15 +50,17 @@ namespace bluepen.powershell.services.emethods
         /// <exception cref="ContentProvidedException">Thrown when recipients list is zero or null</exception>
         public static IList<string> GetRecipients(this QuickApplicant quickApplicant) {
 
-            IList<string> recipients = null;
+            IList<string>? recipients = null;
 
             //sort out recipients...
             if (quickApplicant.IsFile)
             {
-                if (quickApplicant.Recipients.Any() && quickApplicant.Recipients[0].IndexOfAny(new char[] { '\\', '/', ':' }) != -1)
+                FileInfo fileInfo = new FileInfo(quickApplicant.RecipientPath);
+
+                if (fileInfo.Exists)
                 {
                     //we have a file...
-                    recipients = File.ReadAllText(quickApplicant.Recipients[0]).Split("\r\n").ToList();
+                    recipients = File.ReadAllText(fileInfo.FullName).Split("\r\n").ToList();
                 }
             }
             else
@@ -71,14 +69,7 @@ namespace bluepen.powershell.services.emethods
                 {
                     recipients = quickApplicant.Recipients;
                 }
-            }
-            
-            if (recipients == null)
-            {
-                throw new ContentProvidedException("Content provided is something else...There is an issue...");
-            }
-
-            //sort out recipients...
+            }            
             return recipients;
         }
     }

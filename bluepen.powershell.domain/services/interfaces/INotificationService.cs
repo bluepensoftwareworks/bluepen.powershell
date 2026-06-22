@@ -1,4 +1,6 @@
-﻿namespace bluepen.powershell.domain.services.interfaces
+﻿using bluepen.powershell.domain.entities;
+
+namespace bluepen.powershell.domain.services.interfaces
 {
     /// <summary>
     /// Represents a notification service interface that declares what needs to be implemented by concrete different notification service classes
@@ -12,6 +14,6 @@
         /// Notifies recipients individually with subject, topic, content, (optional attachment), signature
         /// </summary>        /// 
         /// <returns>A <see cref="Task"/> that represents the asynchronous notify operation.</returns>
-        public Task NotifyAsync();
+        public Task NotifyAsync(QuickApplicant quickApplicant);
     }
 }

@@ -6,6 +6,8 @@ namespace bluepen.powershell.services.exceptions
     /// </summary>
     public  class ContentProvidedException: Exception
     {
+        public List<string> ErrorMessages { get; }
+
         /// <summary>
         /// Initializes a new instance of content provided exception
         /// </summary>
@@ -16,6 +18,10 @@ namespace bluepen.powershell.services.exceptions
         /// </summary>
         /// <param name="message">describes error / exception that has occured</param>
         public ContentProvidedException(string message):base(message) { }
+
+        public ContentProvidedException(List<string> errorMessages) : base(string.Join("; ", errorMessages)) {
+            ErrorMessages = errorMessages;
+        }
 
         /// <summary>
         /// Initializes a new instance of content provided exception

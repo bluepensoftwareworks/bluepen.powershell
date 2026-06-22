@@ -20,10 +20,14 @@
         /// <value>A string representing the application password</value>
         public string Password { get; set; }
         /// <summary>
-        /// Gets, Sets comma separated list of recipients. the list is read from command prompt as a comma separated list or input file.(!)
+        /// Gets, Sets comma separated list of recipients. the list is read from command prompt as a comma separated list.(!)
         /// </summary>
         /// <value>A string array representing a list of recipients</value>
         public string[] Recipients { get; set; }
+        /// <summary>
+        /// Gets, Sets, comma separated list of recipients from the input file. the list is read from input file.(!)
+        /// </summary>
+        public string RecipientPath { get; set; }
         /// <summary>
         /// Gets, Sets title of the notification
         /// </summary>
@@ -41,10 +45,14 @@
         /// <value>A string representing context of notification message either as text or filepath to a file with text</value>
         public string Content { get; set; }
         /// <summary>
+        ///  Gets, Sets a content of the notification message / announcement.The content is built / created by input file that contains notification that need to be read into command let and embedded into notification
+        /// </summary>
+        public string ContentPath { get; set; }
+        /// <summary>
         /// Gets, Sets optional attachment that can be included with sent notification. The attachment is a file that is required to be referenced when IsFile parameter is TRUE or IsFile command prompt parameter is present.
         /// </summary>
         /// <value>A string representing filepath to a file to be attached to notification message</value>
-        public string Attachment { get; set; }
+        public string AttachmentPath { get; set; }
         /// <summary>
         /// Gets, Sets a signature context for the notification message
         /// </summary>
