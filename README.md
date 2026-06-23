@@ -122,7 +122,14 @@ Provide examples of how to use our solution, including code snippets or screensh
      <img width="1135" height="477" alt="image" src="https://github.com/user-attachments/assets/84242b95-ed7d-46c8-b5a6-0c488d2e7acb" />
       Note: Ensure System.Management.Automation.dll is NOT in this folder.
 
-    Step 5: Test Locally
+     Step 5: Test Locally
+     Before distributing, make sure it works on your machine.
+     1. Open a fresh PowerShell 7 session.
+     2. Import the module directly using the path to your manifest:
+     3. Import-Module "C:\Path\To\Your\Project\bin\Release\net8.0\Publish\bluepen.powershell.cmdlets\bluepen.powershell.cmdlets.psd1" -Force
+     4. Run one of your cmdlets to verify that MailKit and your class libraries load without assembly resolution errors.
+     5. <img width="1161" height="332" alt="image" src="https://github.com/user-attachments/assets/2bef755e-4ae6-4931-bee9-558ee8ad219e" />
+
 
    
      
