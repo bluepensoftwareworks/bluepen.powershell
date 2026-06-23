@@ -101,6 +101,7 @@ Provide examples of how to use our solution, including code snippets or screensh
      Set CopyToOutputDirectory to PreserveNewest.
      <img width="948" height="351" alt="image" src="https://github.com/user-attachments/assets/5e3c23f7-91be-48e3-b603-5e09f397efe0" />
 
+     When you run dotnet build or dotnet publish, these files will be placed in the output folder relative to your DLL. 
 
      **Step 2**: Create the Module Manifest (.psd1)
      PowerShell modules require a manifest file so PowerShell knows how to load them.
@@ -151,13 +152,9 @@ Provide examples of how to use our solution, including code snippets or screensh
      3. Publish-PSResource -Path "C:\Path\To\Publish\bluepen.powershell.cmdlets" -Repository PSGallery -APIKey "your-api-key"
      4. Once published, anyone can install it by running: Install-PSResource bluepen.powershell.cmdlets
     
-
-      
-   
-     
-        
-
-
+     Prompts just in case:
+     * how to package and distribute additional artifacts like pdf and txt with binary powershell module in C#
+     * Provide step by step instructions how to package and distribute Binary Powershell Module that has dependency on two other class library assemblies and System.Management.Automation, MailKit and MimeKit packages in Visual Studio 2022 for Powershell 7
 
 
 ## Contributing
