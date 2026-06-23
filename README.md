@@ -103,6 +103,8 @@ Provide examples of how to use our solution, including code snippets or screensh
      2. Run the following command to generate a template manifest:
         **New-ModuleManifest** -Path .\**bluepen.powershell.cmdlets.psd1** -RootModule '**bluepen.powershell.cmdlets.dll**' -Author 'Bluepen Software' -CompanyName 'Bluepen Software' -Description 'Module description'
      3. Open the generated **bluepen.powershell.cmdlets.psd1** file and ensure the following keys are set:
+        <img width="1004" height="173" alt="image" src="https://github.com/user-attachments/assets/cca22e57-6489-43d9-aa0a-74b8858f1ecd" />
+
 
 
 
