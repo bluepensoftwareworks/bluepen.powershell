@@ -94,7 +94,8 @@ Provide examples of how to use our solution, including code snippets or screensh
     
      Right-click your project in the Solution Explorer, select **Edit Project File**, and configure it like this:
 
-
+     <img width="1193" height="606" alt="image" src="https://github.com/user-attachments/assets/c35c67aa-8512-4284-ad15-c0ae08a80845" />
+     <img width="1067" height="402" alt="image" src="https://github.com/user-attachments/assets/4501a4be-03d3-4235-9218-b27c96e338e9" />
 
 
 ## Contributing
