@@ -2,6 +2,8 @@
 
 It has been created as a shareable draft to showcase how to create binary powershell 7 module and commandlet within it. This commandlet sends individual messages/notifications via external mail service of choice while a user uses Powershell 7 (x64) environment. In addition, this solution shows how to works with **System.Management.Automation** namespace, and design binary powershell framework by utilizing **Abstract Factory and Facade Design Patterns**, and how to work with **MailKit package** and **MimeKit package** in Bluepen Powershell Binary Module (bluepen.powershell.cmdlets).
 
+The project is **reuseable workflow framework** for building binary PowerShell modules with Cmdlets. QuickApplicant can be shown as one concrete implementation, while the real value is the architecture behind it: separation of concerns, design patterns, SOLID principles, OOP/OOD, service classes, factories, validation, packaging, and structured cmdlet output.
+
 ## Table of Contents
 
 - [Project Structure](#project-structure)
@@ -10,6 +12,7 @@ It has been created as a shareable draft to showcase how to create binary powers
   - [Installation](#installation)
 - [Usage](#usage)
 - [Packaging and Distribution](#packaging-distribution)
+- [How to Extend This Framework](#how-to-extend-this-framework)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -152,6 +155,7 @@ Provide examples of how to use our solution, including code snippets or screensh
      3. Publish-PSResource -Path "C:\Path\To\Publish\bluepen.powershell.cmdlets" -Repository PSGallery -APIKey "your-api-key"
      4. Once published, anyone can install it by running: Install-PSResource bluepen.powershell.cmdlets
 
+## How to Extend This Framework
     
 ## Contributing
 
