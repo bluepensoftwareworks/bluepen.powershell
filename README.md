@@ -9,6 +9,7 @@ It has been created as a shareable draft to showcase how to create binary powers
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
+- [Packaging and Distribution](#packagingNdistribution)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -79,6 +80,21 @@ Provide examples of how to use our solution, including code snippets or screensh
 * Command Examples
 *     Send-QuickApplicant -m {either Y or G} -cr (Get-Credential) -r tom.hanks@movies.com,dwayne.jonsohn@movies.com,ebabayan@bluepensoftware.com -s "Oscar movies" -t "Nominee" -c "Who is to present awards this evening?" -sg "Billy Christal"
 *     Send-QuickApplicant -m {either Y or G} -cr (Get-Credential) -rp f:\recipients.txt -s "Oscar Movies" -t "Nominee" -cp f:\content.txt -a f:\attachment.pdf -sg "Billy Christal" **-File**
+
+
+## Packaging and Distribution
+
+* Because PowerShell 7 runs on .NET Core/.NET 8, we need to ensure that your dependencies (MailKit, MimeKit, and your two class libraries) are copied into the output directory, while System.Management.Automation is excluded (since PowerShell already provides it at runtime).
+
+   * Here is the step-by-step guide to building, packaging, and preparing your module for distribution:
+   
+     Step 1: Configure Your Profile file (.csproj)
+
+     Open your main Binary PowerShell Module project in Visual Studio 2022. We need to edit the **'bluepen.powershell.cmdlets.csproj** file directly to handle dependency copying and targeting framework alignment.
+    
+     Right-click your project in the Solution Explorer, select **Edit Project File**, and configure it like this:
+
+
 
 
 ## Contributing
