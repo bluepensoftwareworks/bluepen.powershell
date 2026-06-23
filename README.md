@@ -95,14 +95,9 @@ Provide examples of how to use our solution, including code snippets or screensh
      Right-click your project in the Solution Explorer, select **Edit Project File**, and configure it like this:
 
      <img width="1193" height="606" alt="image" src="https://github.com/user-attachments/assets/c35c67aa-8512-4284-ad15-c0ae08a80845" />
-     
-     Key Settings Explained:
-     * **net8.0**: PowerShell 7.4+ runs on .NET 8. Ensure your local class libraries are also targeting **net8.0** (or netstandard2.1)
-     <CopyLocalLockFileAssemblies>
-       true
-     </CopyLocalLockFileAssemblies>:
-     This tells VS to copy **MailKit.dll**, **MimeKit.dll**, and their dependencies into your build output folder
-     * **PrivateAssets="All"**: This prevents System.Management.Automation.dll from being copied to your output folder. Including it can cause severe runtime conflicts inside PowerShell.
+     <img width="1068" height="386" alt="image" src="https://github.com/user-attachments/assets/ceabcbf6-81ce-4cfc-8d7e-a65ac6450b78" />
+
+
 
 
 ## Contributing
