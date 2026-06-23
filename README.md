@@ -88,7 +88,7 @@ Provide examples of how to use our solution, including code snippets or screensh
 
    * Here is the step-by-step guide to building, packaging, and preparing your module for distribution:
    
-     Step 1: Configure Your Profile file (.csproj)
+     **Step 1**: Configure Your Profile file (.csproj)
 
      Open your main Binary PowerShell Module project in Visual Studio 2022. We need to edit the **'bluepen.powershell.cmdlets.csproj** file directly to handle dependency copying and targeting framework alignment.
     
@@ -97,7 +97,7 @@ Provide examples of how to use our solution, including code snippets or screensh
      <img width="1193" height="606" alt="image" src="https://github.com/user-attachments/assets/c35c67aa-8512-4284-ad15-c0ae08a80845" />
      <img width="1068" height="386" alt="image" src="https://github.com/user-attachments/assets/ceabcbf6-81ce-4cfc-8d7e-a65ac6450b78" />
 
-     Step 2: Create the Module Manifest (.psd1)
+     **Step 2**: Create the Module Manifest (.psd1)
      PowerShell modules require a manifest file so PowerShell knows how to load them.
      1. Open PowerShell 7 and navigate to your project folder: **bluepen.powershell.cmdlets**
      2. Run the following command to generate a template manifest:
@@ -106,7 +106,7 @@ Provide examples of how to use our solution, including code snippets or screensh
      4. RootModule = 'bluepen.powershell.cmdlets.dll'
      5. RequiredAssemblies = @('bluepen.powershell.cmdlets.dll','bluepen.powershell.domain.dll', 'bluepen.powershell.services.dll', 'MailKit.dll', 'MimeKit.dll')
     
-     Step 3: Automate the Layout (Optional but Recommended)
+     **Step 3**: Automate the Layout (Optional but Recommended)
      When you distribute a module, all files must sit inside a folder named exactly like the module itself. You can automate this layout creation using a **Post-Build Event** in Visual Studio
      1. Right-click your project ->**Properties**->**Build**->**Events**.
      2. In the Post-build event box, paste the following script to create a clean **Publish** folder
@@ -114,7 +114,7 @@ Provide examples of how to use our solution, including code snippets or screensh
      4. xcopy "$(ProjectDir)bluepen.powershell.cmdlets.psd1" "$(TargetDir)Publish\bluepen.powershell.cmdlets\" /Y
      5. (Alternatively, you can just manually grab the files from your bin/Debug/net8.0 folder later).
     
-     Step 4: 
+     **Step 4**: 
      1. Set your build configuration to **Release**
      2. Click **Build > Build Solution** (or Ctrl+Shift+B)
      3. Navigate to your output folder (e.g. bin/Release/net8.0/Publish/bluepen.powershell.cmdlets)
@@ -122,7 +122,7 @@ Provide examples of how to use our solution, including code snippets or screensh
      <img width="1135" height="477" alt="image" src="https://github.com/user-attachments/assets/84242b95-ed7d-46c8-b5a6-0c488d2e7acb" />
       Note: Ensure System.Management.Automation.dll is NOT in this folder.
 
-     Step 5: Test Locally
+     **Step 5**: Test Locally
      Before distributing, make sure it works on your machine.
      1. Open a fresh PowerShell 7 session.
      2. Import the module directly using the path to your manifest:
