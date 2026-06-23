@@ -151,12 +151,8 @@ Provide examples of how to use our solution, including code snippets or screensh
      2. Run the following command to publish your module folder to the PowerShell Gallery (require an API Key)
      3. Publish-PSResource -Path "C:\Path\To\Publish\bluepen.powershell.cmdlets" -Repository PSGallery -APIKey "your-api-key"
      4. Once published, anyone can install it by running: Install-PSResource bluepen.powershell.cmdlets
+
     
-     Prompts just in case:
-     * how to package and distribute additional artifacts like pdf and txt with binary powershell module in C#
-     * Provide step by step instructions how to package and distribute Binary Powershell Module that has dependency on two other class library assemblies and System.Management.Automation, MailKit and MimeKit packages in Visual Studio 2022 for Powershell 7
-
-
 ## Contributing
 
 * At this time, current solution is a draft that is open for cloning and improving at your own pace and use. You are welcome to copy this framework for Powershell Binary Module development and extensability. At this time project is open for contributions only to specific bluepen software team members.
@@ -184,3 +180,14 @@ Provide examples of how to use our solution, including code snippets or screensh
 * [cmdlet-overview](https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/cmdlet-overview?view=powershell-7.4)
 * [cmdlet-development-guidelines](https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/cmdlet-development-guidelines?view=powershell-7.4)
 * [declaring-properties-as-parameters](https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/declaring-properties-as-parameters?view=powershell-7.4)
+
+
+**Prompts just in case:**
+* how to package and distribute additional artifacts like pdf and txt with binary powershell module in C#
+* Provide step by step instructions how to package and distribute Binary Powershell Module that has dependency on two other class library assemblies and System.Management.Automation, MailKit and MimeKit packages in Visual Studio 2022 for Powershell 7
+* should -RootModule specify fullpath to dll or not for New-ModuleManifest
+* Install-Module has parameter -Repository, what is the right value for this parameter?
+* how to prepare C# PowerShell module for distribution and to package in Visual Studio 2022
+* how to prepare C# PowerShell module for distribution and to package in Visual Studio 2022 with multiple class libraries and extra files
+* C# cmdlet powershell output type custom object
+
