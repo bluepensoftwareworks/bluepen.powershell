@@ -156,7 +156,7 @@ Provide examples of how to use our solution, including code snippets or screensh
      4. Once published, anyone can install it by running: Install-PSResource bluepen.powershell.cmdlets
 
 ## How to Extend This Framework
-
+(more to come...)
 <img width="407" height="796" alt="image" src="https://github.com/user-attachments/assets/ca0a13b0-39a8-494c-809d-ac765fca3c93" />
 
     
