@@ -98,7 +98,10 @@ Provide examples of how to use our solution, including code snippets or screensh
      
      Key Settings Explained:
      * **net8.0**: PowerShell 7.4+ runs on .NET 8. Ensure your local class libraries are also targeting **net8.0** (or netstandard2.1)
-     * **<<CopyLocalLockFileAssemblies>>true<</CopyLocalLockFileAssemblies>>**: This tells VS to copy **MailKit.dll**, **MimeKit.dll**, and their dependencies into your build output folder
+     <CopyLocalLockFileAssemblies>
+       true
+     </CopyLocalLockFileAssemblies>:
+     This tells VS to copy **MailKit.dll**, **MimeKit.dll**, and their dependencies into your build output folder
      * **PrivateAssets="All"**: This prevents System.Management.Automation.dll from being copied to your output folder. Including it can cause severe runtime conflicts inside PowerShell.
 
 
