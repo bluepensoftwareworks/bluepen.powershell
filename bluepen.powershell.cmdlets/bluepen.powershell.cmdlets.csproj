@@ -7,18 +7,28 @@
     <BaseOutputPath></BaseOutputPath>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Title>QuickApplicant cmdlet</Title>
+    <Description>Quick Applicant Cmdlet is used to send notifications via external mail services</Description>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageTags>PSModule PowerShell</PackageTags>    
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
+    <AssemblyName>bluepen.powershell.cmdlets</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="bin\**" />
     <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="bin\**" />
     <EmbeddedResource Remove="Properties\**" />
+    <None Remove="bin\**" />
     <None Remove="Properties\**" />
   </ItemGroup>
 
   <ItemGroup>    
-    <PackageReference Include="MailKit" Version="4.17.0" />
-    <PackageReference Include="MimeKit" Version="4.17.0" />
-    <PackageReference Include="System.Management.Automation" Version="7.4.6" />
+    <PackageReference Include="MailKit" Version="4.*" />
+    <PackageReference Include="MimeKit" Version="4.*" />
+    <PackageReference Include="System.Management.Automation" Version="7.4.*" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,4 +36,19 @@
     <ProjectReference Include="..\bluepen.powershell.services\bluepen.powershell.services.csproj" />
   </ItemGroup>
 
+   <!-- Pack the DLL and PSD1 files directly into the root layout of the package -->
+  <ItemGroup>
+    <!-- 1. The main module assembly -->
+    <Content Include="$(TargetDir)$(AssemblyName).dll" Pack="true" PackagePath="." />
+    <!-- 2. Your project dependencies (add a line for each internal library) -->
+    <Content Include="$(TargetDir)bluepen.powershell.domain.dll" Pack="true" PackagePath="." />
+    <Content Include="$(TargetDir)bluepen.powershell.services.dll" Pack="true" PackagePath="." />
+    <!-- 3. Third-party NuGet dependencies (if your libraries copy them to output) -->
+    <!-- <Content Include="$(TargetDir)Newtonsoft.Json.dll" Pack="true" PackagePath="." /> -->
+    <Content Include="bluepen.powershell.cmdlets.psd1" Pack="true" PackagePath="." />
+    <Content Include="$(OutputPath)$(AssemblyName).dll" Pack="true" PackagePath="." />    
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(TargetDir)*.dll&quot; &quot;$(TargetDir)Publish\bluepen.powershell.cmdlets\&quot; /Y /I&#xA;xcopy &quot;$(ProjectDir)bluepen.powershell.cmdlets.psd1&quot; &quot;$(TargetDir)Publish\bluepen.powershell.cmdlets\&quot; /Y" />
+  </Target>
 </Project>

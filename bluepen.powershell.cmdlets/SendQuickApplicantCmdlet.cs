@@ -9,6 +9,7 @@ namespace bluepen.powershell.cmdlets
 {
     /// <summary>
     /// Represents SendQuickApplicant CommandLet..
+    /// Prompt: Provide step by step instructions how to package and distribute Binary Powershell Module that has dependency on two other class library assemblies and System.Management.Automation, MailKit and MimeKit packages in Visual Studio 2022 for Powershell 7
     /// </summary>
     [Cmdlet(VerbsCommunications.Send, "QuickApplicant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Low, DefaultParameterSetName = "SwitchIsOff")]
     [OutputType(typeof(CustomObject))]
