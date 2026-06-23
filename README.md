@@ -130,7 +130,23 @@ Provide examples of how to use our solution, including code snippets or screensh
      4. Run one of your cmdlets to verify that MailKit and your class libraries load without assembly resolution errors.
      5. <img width="1161" height="332" alt="image" src="https://github.com/user-attachments/assets/2bef755e-4ae6-4931-bee9-558ee8ad219e" />
 
+     **Step 6**: Distribute the module
+     You have two primary ways to distribute this package to others:
 
+     **Option A: Manual Zip Distribution (Internal/Fileshare)**
+     1. Zip the bluepen.powershell.cmdlets folder
+     2. Instruct users to extract it into one of their $env:PSModulePath directories, such as: **C:\Users\{username}\Documents\Powershell\Modules\bluepen.powershell.cmdlets**
+     3. They can then simply run Import-Module -Name bluepen.powershell.cmdlets
+    
+     **Option B: Publish to PowerShell Gallery (or Internal NuGet Repository)**
+     PowerShell 7 uses Microsoft.PowerShell.PSResourceGet for publishing
+     1. Ensure your .psd1 file has a property filled-out ModuleVersion, Description, and Author.
+     2. Run the following command to publish your module folder to the PowerShell Gallery (require an API Key)
+     3. Publish-PSResource -Path "C:\Path\To\Publish\bluepen.powershell.cmdlets" -Repository PSGallery -APIKey "your-api-key"
+     4. Once published, anyone can install it by running: Install-PSResource bluepen.powershell.cmdlets
+    
+
+      
    
      
         
