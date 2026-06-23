@@ -101,8 +101,8 @@ Provide examples of how to use our solution, including code snippets or screensh
      PowerShell modules require a manifest file so PowerShell knows how to load them.
      1. Open PowerShell 7 and navigate to your project folder: **bluepen.powershell.cmdlets**
      2. Run the following command to generate a template manifest:
-        **New-ModuleManifest** -Path .\bluepen.powershell.cmdlets.psd1 -RootModule 'bluepen.powershell.cmdlets.dll' -Author 'Bluepen Software' -CompanyName 'Bluepen Software' -Description 'Module description'
-     3. Open the generated bluepen.powershell.cmdlets.psd1 file and ensure the following keys are set:
+        **New-ModuleManifest** -Path .\**bluepen.powershell.cmdlets.psd1** -RootModule '**bluepen.powershell.cmdlets.dll**' -Author 'Bluepen Software' -CompanyName 'Bluepen Software' -Description 'Module description'
+     3. Open the generated **bluepen.powershell.cmdlets.psd1** file and ensure the following keys are set:
 
 
 
