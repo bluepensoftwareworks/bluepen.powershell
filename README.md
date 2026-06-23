@@ -115,6 +115,14 @@ Provide examples of how to use our solution, including code snippets or screensh
      5. (Alternatively, you can just manually grab the files from your bin/Debug/net8.0 folder later).
     
      Step 4: 
+     1. Set your build configuration to **Release**
+     2. Click **Build > Build Solution** (or Ctrl+Shift+B)
+     3. Navigate to your output folder (e.g. bin/Release/net8.0/Publish/bluepen.powershell.cmdlets)
+     Your final distribution folder must look like this:
+     <img width="1135" height="477" alt="image" src="https://github.com/user-attachments/assets/84242b95-ed7d-46c8-b5a6-0c488d2e7acb" />
+     Note: Ensure System.Management.Automation.dll is NOT in this folder.
+
+   
      
         
 
