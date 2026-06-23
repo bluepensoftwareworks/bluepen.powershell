@@ -9,7 +9,7 @@ It has been created as a shareable draft to showcase how to create binary powers
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
-- [Packaging and Distribution](#packagingNdistribution)
+- [Packaging and Distribution](#packaging-distribution)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -97,6 +97,11 @@ Provide examples of how to use our solution, including code snippets or screensh
      <img width="1193" height="606" alt="image" src="https://github.com/user-attachments/assets/c35c67aa-8512-4284-ad15-c0ae08a80845" />
      <img width="1068" height="386" alt="image" src="https://github.com/user-attachments/assets/ceabcbf6-81ce-4cfc-8d7e-a65ac6450b78" />
 
+     You need to tell MSBuild to copy your PDF and TXT files into the build output directory alongside your compiled module DLL. Open your .csproj file and add an <ItemGroup> using the None or Content include patterns.
+     Set CopyToOutputDirectory to PreserveNewest.
+     <img width="948" height="351" alt="image" src="https://github.com/user-attachments/assets/5e3c23f7-91be-48e3-b603-5e09f397efe0" />
+
+
      **Step 2**: Create the Module Manifest (.psd1)
      PowerShell modules require a manifest file so PowerShell knows how to load them.
      1. Open PowerShell 7 and navigate to your project folder: **bluepen.powershell.cmdlets**
@@ -105,6 +110,7 @@ Provide examples of how to use our solution, including code snippets or screensh
      3. Open the generated **bluepen.powershell.cmdlets.psd1** file and ensure the following keys are set:
      4. RootModule = 'bluepen.powershell.cmdlets.dll'
      5. RequiredAssemblies = @('bluepen.powershell.cmdlets.dll','bluepen.powershell.domain.dll', 'bluepen.powershell.services.dll', 'MailKit.dll', 'MimeKit.dll')
+     6. FileList = @('attachment.pdf','content.txt','recipients.txt');
     
      **Step 3**: Automate the Layout (Optional but Recommended)
      When you distribute a module, all files must sit inside a folder named exactly like the module itself. You can automate this layout creation using a **Post-Build Event** in Visual Studio
