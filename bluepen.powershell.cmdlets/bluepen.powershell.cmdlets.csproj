@@ -30,7 +30,13 @@
     <PackageReference Include="MimeKit" Version="4.*" />
     <PackageReference Include="System.Management.Automation" Version="7.4.*" PrivateAssets="All" />
   </ItemGroup>
-
+  
+  <ItemGroup>
+    <None Include="attachment.pdf"  CopyToOutputDirectory="PreserveNewest" />
+    <None Include="content.txt"     CopyToOutputDirectory="PreserveNewest" />
+    <None Include="recipients.txt"  CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\bluepen.powershell.domain\bluepen.powershell.domain.csproj" />
     <ProjectReference Include="..\bluepen.powershell.services\bluepen.powershell.services.csproj" />

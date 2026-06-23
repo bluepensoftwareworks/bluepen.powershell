@@ -18,7 +18,7 @@ ModuleVersion = '0.0.1'
 # CompatiblePSEditions = @()
 
 # ID used to uniquely identify this module
-GUID = '5fca6211-e239-430d-b3b7-e9f942b0c05f'
+GUID = 'eaf15dac-a722-436c-ac15-5e8f4447df8c'
 
 # Author of this module
 Author = 'Bluepen Software'
@@ -87,7 +87,7 @@ AliasesToExport = '*'
 # ModuleList = @()
 
 # List of all files packaged with this module
-# FileList = @()
+ FileList = @('attachment.pdf','content.txt','recipients.txt')
 
 # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
 PrivateData = @{
