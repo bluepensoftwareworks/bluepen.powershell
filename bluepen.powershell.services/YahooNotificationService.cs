@@ -17,14 +17,14 @@ namespace bluepen.powershell.services
         /// YahooNotificationService
         /// </summary>
         /// <param name="validator"></param>
-        public YahooNotificationService(IValidator validator): base("smtp.mail.yahoo.com", validator) {}        
+        public YahooNotificationService(IValidator validator, IMemoryLog memoryLog) : base("smtp.mail.yahoo.com", validator, memoryLog) {}        
 
         /// <summary>
         /// Notifies 
         /// </summary>
         /// <returns></returns>
-        public async Task NotifyAsync(QuickApplicant quickApplicant) {
-            await base.NotifyAsync(quickApplicant);
+        public async Task NotifyAsync(QuickApplicant quickApplicant, CancellationToken token) {
+            await base.NotifyAsync(quickApplicant, token);
         }
     }
 }

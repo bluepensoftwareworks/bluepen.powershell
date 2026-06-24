@@ -51,7 +51,7 @@ namespace bluepen.powershell.services.validators
                         if (fileInfo.Exists)
                         {
                             MailboxAddress? mailboxAddress = null;
-                            var recipients = File.ReadAllText(fileInfo.FullName).Split("\r\n").ToList();
+                            var recipients = File.ReadAllText(fileInfo.FullName).Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).ToList();
 
                             if (recipients.Any(g => !MailboxAddress.TryParse(g, out mailboxAddress)))
                             {

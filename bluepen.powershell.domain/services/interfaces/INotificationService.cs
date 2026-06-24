@@ -14,6 +14,6 @@ namespace bluepen.powershell.domain.services.interfaces
         /// Notifies recipients individually with subject, topic, content, (optional attachment), signature
         /// </summary>        /// 
         /// <returns>A <see cref="Task"/> that represents the asynchronous notify operation.</returns>
-        public Task NotifyAsync(QuickApplicant quickApplicant);
+        public Task NotifyAsync(QuickApplicant quickApplicant, CancellationToken token);
     }
 }

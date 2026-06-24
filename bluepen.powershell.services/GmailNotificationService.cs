@@ -16,15 +16,15 @@ namespace bluepen.powershell.services
         /// Instantiates new instance of Gmail Notification service
         /// </summary>
         /// <param name="quickApplicant">the unique applicant account</param>
-        public GmailNotificationService(IValidator validator):base("smtp.gmail.com", validator) {}
+        public GmailNotificationService(IValidator validator, IMemoryLog memoryLog):base("smtp.gmail.com", validator, memoryLog) {}
 
         /// <summary>
         /// Notifies a specific set of recipients with notification message, subject, topic, optional attachment, and defined signature with utilization of Gmail Mail service
         /// </summary>
         /// <returns></returns>
-        public async Task NotifyAsync(QuickApplicant quickApplicant)
+        public async Task NotifyAsync(QuickApplicant quickApplicant, CancellationToken token)
         {
-            await base.NotifyAsync(quickApplicant);
+            await base.NotifyAsync(quickApplicant, token);
         }
     }
 }

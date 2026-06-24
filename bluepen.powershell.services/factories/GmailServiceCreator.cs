@@ -9,13 +9,25 @@ namespace bluepen.powershell.services.factories
     /// </summary>
     public class GmailServiceCreator : NotificationServiceCreator
     {
+
+        private readonly IMemoryLog memoryLog;
+
+        /// <summary>
+        /// YahooServiceCreator
+        /// </summary>
+        /// <param name="memoryLog"></param>
+        public GmailServiceCreator(IMemoryLog memoryLog)
+        {
+            this.memoryLog = memoryLog;
+        }
+
         /// <summary>
         /// Gets instance of Gmail Notification service that extends NotificationService base class that implements INotificationService interface
         /// </summary>
         /// <returns>GmailNotificationService</returns>
         public override INotificationService GetNotificationService()
         {
-            return new GmailNotificationService(new QuickApplicantValidator());
+            return new GmailNotificationService(new QuickApplicantValidator(), memoryLog);
         }
     }
 }

@@ -85,6 +85,10 @@ namespace bluepen.powershell.cmdlets
 
         private NotificationServiceCreator? serviceCreator;
 
+        // 1. Create a CancellationTokenSource
+        private readonly CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+        private readonly MemoryLog memoryLog = new MemoryLog();
+
         /// <summary>
         /// Begins Processing of the commandLet, do initialization
         /// </summary>        
@@ -97,10 +101,10 @@ namespace bluepen.powershell.cmdlets
 
                 switch (this.Service.ToUpper()) {
                     case "Y":
-                        serviceCreator = new YahooServiceCreator();
+                        serviceCreator = new YahooServiceCreator(memoryLog);
                         break;
                     case "G":
-                        serviceCreator = new GmailServiceCreator();
+                        serviceCreator = new GmailServiceCreator(memoryLog);
                         break;
                     default:
                         throw new Exception("Service Creator is not available...");
@@ -111,6 +115,7 @@ namespace bluepen.powershell.cmdlets
             }
         }
 
+        // 3. Monitor the token in your main processing record method
         /// <summary>
         /// Processes each record in the pipeline
         /// </summary>        
@@ -118,7 +123,7 @@ namespace bluepen.powershell.cmdlets
         {
             base.ProcessRecord();
             WriteVerbose("Processing a Record...");
-
+            CancellationToken token = cancellationTokenSource.Token;
 
             if (ShouldProcess(Content, "Send Notifications") || ShouldProcess(ContentPath, "Send Notifications"))
             {
@@ -129,26 +134,27 @@ namespace bluepen.powershell.cmdlets
                     {
                         // Code inside here ONLY runs if the user explicitly confirms or did not use -WhatIf
                         notificationService?.NotifyAsync(
-                            new QuickApplicant(){
-                            Username = Credential.UserName,
-                            Password = new System.Net.NetworkCredential(string.Empty, Credential.Password).Password,
-                            Subject = Subject,
-                            Topic = Topic,
-                            Content = Content,
-                            ContentPath = ContentPath,
-                            Recipients = Recipients,
-                            RecipientPath = RecipientPath,
-                            AttachmentPath = AttachmentPath,
-                            Signature = Signature,
-                            IsFile = File
-                        }).GetAwaiter().GetResult();
+                            new QuickApplicant()
+                            {
+                                Username = Credential.UserName,
+                                Password = new System.Net.NetworkCredential(string.Empty, Credential.Password).Password,
+                                Subject = Subject,
+                                Topic = Topic,
+                                Content = Content,
+                                ContentPath = ContentPath,
+                                Recipients = Recipients,
+                                RecipientPath = RecipientPath,
+                                AttachmentPath = AttachmentPath,
+                                Signature = Signature,
+                                IsFile = File
+                            }, token).GetAwaiter().GetResult();
                     }
 
-                    foreach (var item in MemoryLog.GetLogs())
+                    foreach (var item in memoryLog.GetLogs())
                     {
                         WriteVerbose(item);
                     }
-                    MemoryLog.ResetLogs();
+                    memoryLog.ResetLogs();
 
 
                     WriteObject(new CustomObject()
@@ -162,6 +168,9 @@ namespace bluepen.powershell.cmdlets
                 catch (Exception ex)
                 {
                     WriteError(new ErrorRecord(ex, Guid.NewGuid().ToString(), ErrorCategory.InvalidOperation, ""));
+                }
+                finally {
+                    cancellationTokenSource.Dispose();
                 }
             }
         }
@@ -183,17 +192,22 @@ namespace bluepen.powershell.cmdlets
                 WriteError(new ErrorRecord(ex, Guid.NewGuid().ToString(), ErrorCategory.InvalidOperation, ""));
             }
         }
-                
+
         /// <summary>
         /// Handle abnormal termination
         /// </summary>
+        // 2. Override StopProcessing to signal cancellation
         protected override void StopProcessing()
         {
             base.StopProcessing();
-            WriteVerbose("Stop Processing...");
-            try{
+            try
+            {
+                WriteVerbose("Stop Processing...");
+                // This is called by PowerShell from a separate thread when Ctrl+C is pressed
+                cancellationTokenSource.Cancel();
 
-            }catch (Exception ex){
+            }
+            catch (Exception ex){
                 WriteError(new ErrorRecord(ex, Guid.NewGuid().ToString(), ErrorCategory.InvalidOperation, ""));
             }
         }

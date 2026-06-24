@@ -18,15 +18,17 @@ namespace bluepen.powershell.domain.services
     {
         private bool _disposed = false;
 
+        private readonly IMemoryLog memoryLog;
         private string multiProviderSMTP;
         protected IValidator validator;
 
         /// <summary>
         /// NotificationService
         /// </summary>
-        public NotificationService(string multiProviderSMTP, IValidator validator) {
+        public NotificationService(string multiProviderSMTP, IValidator validator, IMemoryLog memoryLog) {
             this.multiProviderSMTP = multiProviderSMTP;
             this.validator = validator;
+            this.memoryLog = memoryLog;
         }
 
         /// <summary>
@@ -66,7 +68,7 @@ namespace bluepen.powershell.domain.services
         /// Notifies recipients individually with subject, topic, content, (optional attachment), signature
         /// </summary>  
         /// <returns>A <see cref="Task"/> that represents the asynchronous notify operation.</returns>
-        public virtual async Task NotifyAsync(QuickApplicant quickApplicant)
+        public virtual async Task NotifyAsync(QuickApplicant quickApplicant, CancellationToken token)
         {
             using (var client = new SmtpClient())
             {
@@ -114,21 +116,25 @@ namespace bluepen.powershell.domain.services
 
                             message.Body = bodyBuilder.ToMessageBody();
 
+                            if (token.IsCancellationRequested) {
+                                break;
+                            }
                             //Send the message
                             await client.SendAsync(message);
+
                             string result = $"Username: {quickApplicant.Username}, Subject: {quickApplicant.Subject}, Topic: {quickApplicant.Topic}, Signature: {quickApplicant.Signature}";
-                            MemoryLog.Log(result);
+                            memoryLog.Log(result);
                             await Task.Delay(TimeSpan.FromSeconds(5));
                         }
                         catch (Exception ex)
                         {
-                            MemoryLog.Log($"Failed to send email. Error: {ex.Message}");
+                            memoryLog.Log($"Failed to send email. Error: {ex.Message}");
                         }
                     }
                 }
                 catch (Exception e)
                 {
-                    MemoryLog.Log($"{e.Message}");
+                    memoryLog.Log($"{e.Message}");
                 }
                 finally
                 {
