@@ -67,7 +67,7 @@ Provide examples of how to use our solution, including code snippets or screensh
 *   Rebuild Solution.
 *   Invoke Powershell 7 (x64)
 *   Install Module via
-    **PS C:\{directory-what-have-you}> Import-Module -Name C:\{directory-what-have-you}\bluepen.powershell\bluepen.powershell.cmdlets\bin\Debug\net8.0\bluepen.powershell.cmdlets.dll**
+    **PS C:\{directory-what-have-you}> Import-Module -Name C:\{directory-what-have-you}\bluepen.powershell\bluepen.powershell.cmdlets\bin\Release\net8.0\bluepen.powershell.cmdlets.dll**
     <img width="1347" height="516" alt="image" src="https://github.com/user-attachments/assets/d2050551-5fe0-4856-9be7-fcc09367b229" />
 *   Attach Visual Studio to a process
     <img width="785" height="590" alt="image" src="https://github.com/user-attachments/assets/54c1ad0b-887a-448a-abd3-ccdd67f42238" />
