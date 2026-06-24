@@ -1,5 +1,4 @@
-﻿using bluepen.powershell.domain.entities;
-using bluepen.powershell.domain.services.abstracts;
+﻿using bluepen.powershell.domain.services.abstracts;
 using bluepen.powershell.domain.services.interfaces;
 using bluepen.powershell.services.validators;
 
@@ -11,7 +10,7 @@ namespace bluepen.powershell.services.factories
     public class GmailServiceCreator : NotificationServiceCreator
     {
         /// <summary>
-        /// Gets instance of Gmail Notification service that implements INotificationService interface
+        /// Gets instance of Gmail Notification service that extends NotificationService base class that implements INotificationService interface
         /// </summary>
         /// <returns>GmailNotificationService</returns>
         public override INotificationService GetNotificationService()

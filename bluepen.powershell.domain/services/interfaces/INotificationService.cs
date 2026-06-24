@@ -8,7 +8,7 @@ namespace bluepen.powershell.domain.services.interfaces
     /// <remarks>
     /// This interface is a simple example for defining what different notification service classes need to implement
     /// </remarks>
-    public interface INotificationService: IDisposable
+    public interface INotificationService : IDisposable
     {
         /// <summary>
         /// Notifies recipients individually with subject, topic, content, (optional attachment), signature

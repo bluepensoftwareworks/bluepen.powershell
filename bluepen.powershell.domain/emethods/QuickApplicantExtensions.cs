@@ -1,7 +1,6 @@
 ﻿using bluepen.powershell.domain.entities;
-using bluepen.powershell.services.exceptions;
 
-namespace bluepen.powershell.services.emethods
+namespace bluepen.powershell.domain.emethods
 {
     /// <summary>
     /// Represents class with extension methods

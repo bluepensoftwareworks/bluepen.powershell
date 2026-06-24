@@ -1,5 +1,4 @@
-﻿using bluepen.powershell.domain.entities;
-using bluepen.powershell.domain.services.abstracts;
+﻿using bluepen.powershell.domain.services.abstracts;
 using bluepen.powershell.domain.services.interfaces;
 using bluepen.powershell.services.validators;
 
@@ -11,7 +10,7 @@ namespace bluepen.powershell.services.factories
     public class YahooServiceCreator : NotificationServiceCreator
     {
         /// <summary>
-        /// Gets instance of Yahoo Notification service that implements INotificationService interface
+        /// Gets instance of Yahoo Notification service that extends NotificationService class that implements INotificationService interface
         /// </summary>
         /// <returns>YahooNotificationService</returns>
         public override INotificationService GetNotificationService()

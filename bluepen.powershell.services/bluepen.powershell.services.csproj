@@ -9,6 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="emethods\**" />
+    <Compile Remove="exceptions\**" />
+    <EmbeddedResource Remove="emethods\**" />
+    <EmbeddedResource Remove="exceptions\**" />
+    <None Remove="emethods\**" />
+    <None Remove="exceptions\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="MemoryLog.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation" Version="12.1.1" />
     <PackageReference Include="MailKit" Version="4.17.0">
       <GeneratePathProperty>True</GeneratePathProperty>
