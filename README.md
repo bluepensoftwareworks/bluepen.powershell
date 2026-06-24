@@ -157,7 +157,8 @@ Provide examples of how to use our solution, including code snippets or screensh
 
 ## How to Extend This Framework
 (more to come...) <br/>
-<img width="435" height="919" alt="image" src="https://github.com/user-attachments/assets/0dc0ab28-e046-42ab-8797-6b8975ddd7f6" />
+<img width="435" height="918" alt="image" src="https://github.com/user-attachments/assets/7aaa530c-1dc3-41ae-8357-7af1f6652df3" />
+
 
 
 
