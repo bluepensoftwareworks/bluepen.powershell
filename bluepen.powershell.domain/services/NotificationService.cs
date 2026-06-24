@@ -80,9 +80,9 @@ namespace bluepen.powershell.domain.services
                         throw new ContentProvidedException(validationResult.Errors);
                     }
 
-                    await client.ConnectAsync(multiProviderSMTP, 465, SecureSocketOptions.SslOnConnect);
+                    await client.ConnectAsync(multiProviderSMTP, 465, SecureSocketOptions.SslOnConnect, token);
                     //Authenticate using your full Yahoo email address and the application password
-                    await client.AuthenticateAsync(quickApplicant.Username, quickApplicant.Password);
+                    await client.AuthenticateAsync(quickApplicant.Username, quickApplicant.Password, token);
 
                     string fileContents = quickApplicant.GetContent();
 
@@ -120,11 +120,11 @@ namespace bluepen.powershell.domain.services
                                 break;
                             }
                             //Send the message
-                            await client.SendAsync(message);
+                            await client.SendAsync(message, token);
 
                             string result = $"Username: {quickApplicant.Username}, Subject: {quickApplicant.Subject}, Topic: {quickApplicant.Topic}, Signature: {quickApplicant.Signature}";
                             memoryLog.Log(result);
-                            await Task.Delay(TimeSpan.FromSeconds(5));
+                            await Task.Delay(TimeSpan.FromSeconds(5), token);
                         }
                         catch (Exception ex)
                         {
@@ -139,7 +139,7 @@ namespace bluepen.powershell.domain.services
                 finally
                 {
                     //Disconnect from the server
-                    await client.DisconnectAsync(true);
+                    await client.DisconnectAsync(true, token);
                 }
             }
         }
