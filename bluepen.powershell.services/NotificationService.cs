@@ -1,7 +1,7 @@
-﻿using bluepen.powershell.domain.emethods;
-using bluepen.powershell.domain.entities;
-using bluepen.powershell.domain.exceptions;
+﻿using bluepen.powershell.domain.entities;
 using bluepen.powershell.domain.services.interfaces;
+using bluepen.powershell.services.emethods;
+using bluepen.powershell.services.exceptions;
 using MailKit.Net.Smtp;
 using MailKit.Security;
 using MimeKit;

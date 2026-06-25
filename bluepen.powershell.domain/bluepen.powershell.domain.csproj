@@ -9,6 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="emethods\**" />
+    <Compile Remove="exceptions\**" />
+    <EmbeddedResource Remove="emethods\**" />
+    <EmbeddedResource Remove="exceptions\**" />
+    <None Remove="emethods\**" />
+    <None Remove="exceptions\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="services\NotificationService.cs" />
   </ItemGroup>
   <ItemGroup>
